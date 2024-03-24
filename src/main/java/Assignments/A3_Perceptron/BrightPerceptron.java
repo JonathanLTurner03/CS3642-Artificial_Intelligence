@@ -2,6 +2,12 @@ package Assignments.A3_Perceptron;
 
 import java.text.DecimalFormat;
 
+/**
+ * This class is a perceptron training for recognizing a bright or dark "image".
+ *
+ * @author Jonathan Turner
+ * @version Spring 2024
+ */
 public class BrightPerceptron {
 
     /**
