@@ -62,8 +62,8 @@ public class LogicOrPerceptron {
 
         /* Calls the iterate method to perform the iteration over the 4 truth table values */
         Results first = iterate(weight0, weight1, weight2, learningRate, 0, 0, 0);
-        Results second = iterate(weight0, first.newWeight1(), first.newWeight2(), learningRate, 0, 1, 0);
-        Results third = iterate(weight0, second.newWeight1(), second.newWeight2(), learningRate, 1, 0, 0);
+        Results second = iterate(weight0, first.newWeight1(), first.newWeight2(), learningRate, 0, 1, 1);
+        Results third = iterate(weight0, second.newWeight1(), second.newWeight2(), learningRate, 1, 0, 1);
         Results fourth = iterate(weight0, third.newWeight1(), third.newWeight2(), learningRate, 1, 1, 1);
 
         /* Stores the results of the 4 iterations */
