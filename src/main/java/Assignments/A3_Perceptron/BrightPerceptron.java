@@ -6,7 +6,6 @@ public class BrightPerceptron {
 
     /* TODO: Add the JavaDoc */
     public void beginTraining() {
-        /* Initial weights TODO: accept these values as a parameter */
         double weight0 = -0.5; // Bias
         double weight1 = 0.7;
         double weight2 = -0.2;
