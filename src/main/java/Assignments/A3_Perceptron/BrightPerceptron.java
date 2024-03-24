@@ -115,11 +115,11 @@ public class BrightPerceptron {
         }
 
         /* Prints out the table for each of the epochs. */
-        System.out.printf(" %-7s| %-12s| %-13s| %-23s| %-7s| %-15s| %-7s| %-23s| %-20s%n",
-                "Sample", "Input", "Target (y)", "Weights (w1,w2,w3,w4)", "S", "Output (o)", "Error",
-                "Delta (d1,d2,d3,d4)", "Updated Weights (w1,w2,w3,w4)");
+        System.out.printf(" %-7s| %-12s| %-13s| %-27s| %-7s| %-15s| %-7s| %-27s| %-27s%n",
+                "Sample", "Input", "Target (y)", "Weights (w0,w1,w2,w3,w4)", "S", "Output (o)", "Error",
+                "Delta (d1,d2,d3,d4)", "Updated Weights (w0,w1,w2,w3,w4)");
         System.out.println("--------------------------------------------------------------------------------------" +
-                "------------------------------------------");
+                "-------------------------------------------------------------------------------");
         StringBuilder table = new StringBuilder();
         for (int i = 0; i < results.length; i++) {
             table.append(formatResults(i + 1, results[i])).append("\n");
@@ -150,19 +150,21 @@ public class BrightPerceptron {
      */
     private String formatResults(int sample, Results result) {
         DecimalFormat formatVal = new DecimalFormat("##.##");
-        return String.format(" %-7s| %-12s| %-13s| %-23s| %-7s| %-15s| %-7s| %-23s| %-20s",
+        return String.format(" %-7s| %-12s| %-13s| %-27s| %-7s| %-15s| %-7s| %-27s| %-27s",
                 sample, // The Sample/Iteration Number
                 result.input1() + "," + result.input2() + "," + result.input3 + "," + result.input4, // The Input Values
                 result.target(), // The Target Value
-                formatVal.format(result.weight1()) + "," + formatVal.format(result.weight2()) + ","
-                    + formatVal.format(result.weight3) + "," + formatVal.format(result.weight4), // The Original Weights
+                formatVal.format(result.weight0) + "," + formatVal.format(result.weight1()) + "," +
+                        formatVal.format(result.weight2()) + "," + formatVal.format(result.weight3) + "," +
+                        formatVal.format(result.weight4), // The Original Weights
                 formatVal.format(result.s()), // The S Value
                 result.output(), // The Output Value
                 result.error(), // The Error Value
                 formatVal.format(result.delta0()) + "," + formatVal.format(result.delta1()) + "," + formatVal.format(result.delta2()) + ","
                     + formatVal.format(result.delta3()) + "," + formatVal.format(result.delta4()), // The Delta Values
-                formatVal.format(result.newWeight1) + "," + formatVal.format(result.newWeight2) + ","
-                    + formatVal.format(result.newWeight3) + "," + formatVal.format(result.newWeight4)); // The Updated Weights
+                formatVal.format(result.newWeight0) + "," + formatVal.format(result.newWeight1) + "," +
+                        formatVal.format(result.newWeight2) + "," + formatVal.format(result.newWeight3) + "," +
+                        formatVal.format(result.newWeight4)); // The Updated Weights
     }
 
     /**
