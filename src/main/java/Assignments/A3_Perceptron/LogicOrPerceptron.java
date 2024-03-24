@@ -66,10 +66,14 @@ public class LogicOrPerceptron {
     private String formatResults(int sample, Results result) {
         DecimalFormat formatVal = new DecimalFormat("##.##");
         return String.format(" %-7s| %-7s| %-13s| %-18s| %-7s| %-15s| %-7s| %-15s| %-20s",
-                sample, result.input1() + "," + result.input2(), result.target(),
+                sample,
+                result.input1() + "," + result.input2(),
+                result.target(),
                 formatVal.format(result.weight1()) + "," + formatVal.format(result.weight2()),
-                formatVal.format(result.s()), result.output(),
-                result.error(), formatVal.format(result.delta1()) + "," + formatVal.format(result.delta2()),
+                formatVal.format(result.s()),
+                result.output(),
+                result.error(),
+                formatVal.format(result.delta1()) + "," + formatVal.format(result.delta2()),
                 formatVal.format(result.newWeight1) + "," + formatVal.format(result.newWeight2));
     }
 
