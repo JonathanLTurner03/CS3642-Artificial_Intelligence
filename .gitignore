@@ -31,3 +31,5 @@ bin/
 ### Output Files ###
 /out/
 /target/
+
+/.idea/
