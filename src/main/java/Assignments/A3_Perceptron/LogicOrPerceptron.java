@@ -66,15 +66,15 @@ public class LogicOrPerceptron {
     private String formatResults(int sample, Results result) {
         DecimalFormat formatVal = new DecimalFormat("##.##");
         return String.format(" %-7s| %-7s| %-13s| %-18s| %-7s| %-15s| %-7s| %-15s| %-20s",
-                sample,
-                result.input1() + "," + result.input2(),
-                result.target(),
-                formatVal.format(result.weight1()) + "," + formatVal.format(result.weight2()),
-                formatVal.format(result.s()),
-                result.output(),
-                result.error(),
-                formatVal.format(result.delta1()) + "," + formatVal.format(result.delta2()),
-                formatVal.format(result.newWeight1) + "," + formatVal.format(result.newWeight2));
+                sample, // The Sample/Iteration Number
+                result.input1() + "," + result.input2(), // The Input Values
+                result.target(), // The Target Value
+                formatVal.format(result.weight1()) + "," + formatVal.format(result.weight2()), // The Original Weights
+                formatVal.format(result.s()), // The S Value
+                result.output(), // The Output Value
+                result.error(), // The Error Value
+                formatVal.format(result.delta1()) + "," + formatVal.format(result.delta2()), // The Delta Values
+                formatVal.format(result.newWeight1) + "," + formatVal.format(result.newWeight2)); // The Updated Weights
     }
 
     /* TODO: Add the JavaDoc */
