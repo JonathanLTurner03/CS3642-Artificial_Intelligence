@@ -2,11 +2,25 @@ package Assignments.A3_Perceptron;
 
 import java.text.DecimalFormat;
 
+/**
+ * This class is a perceptron training for recognizing a representing logical OR gate.
+ *
+ * @author Jonathan Turner
+ * @version Spring 2024
+ */
 public class LogicOrPerceptron {
 
-    /* TODO: Add the JavaDoc */
+    /**
+     * The main method that begins the training of the perceptron.
+     * <p>
+     *     This method initializes the weights and then begins the training of the perceptron.
+     *     It will loop until the perceptron no longer has any errors in an epoch.
+     *     After each epoch it will print out the results of the epoch in the table format.
+     * </p>
+     *
+     * @see #epoch(double, double, double, double) 
+     */
     public void beginTraining() {
-        /* Initial weights TODO: accept these values as a parameter */
         double weight0 = -0.2;
         double weight1 = 0.3;
         double weight2 = -0.1;
@@ -30,13 +44,26 @@ public class LogicOrPerceptron {
         } while (hasError == 1);
     }
 
-    /* TODO: Add the JavaDoc */
+    /**
+     * The epoch method that performs the iteration over the truth table.
+     * <p>
+     *     this method will iterate over the truth table and perform the calculations for each of the inputs.
+     *     It will then print out the results of the iteration in a table format.
+     * </p>
+     * @param weight0       The bias weight
+     * @param weight1       The weight for the first input
+     * @param weight2       The weight for the second input
+     * @param learningRate  The learning rate for the perceptron
+     * @return The updated weights and if there was an error in the epoch
+     *
+     * @see #iterate(double, double, double, double, int, int, int)
+     */
     public double[] epoch(double weight0, double weight1, double weight2, double learningRate) {
 
         /* Calls the iterate method to perform the iteration over the 4 truth table values */
         Results first = iterate(weight0, weight1, weight2, learningRate, 0, 0, 0);
-        Results second = iterate(weight0, first.newWeight1(), first.newWeight2(), learningRate, 0, 1, 0);
-        Results third = iterate(weight0, second.newWeight1(), second.newWeight2(), learningRate, 1, 0, 0);
+        Results second = iterate(weight0, first.newWeight1(), first.newWeight2(), learningRate, 0, 1, 1);
+        Results third = iterate(weight0, second.newWeight1(), second.newWeight2(), learningRate, 1, 0, 1);
         Results fourth = iterate(weight0, third.newWeight1(), third.newWeight2(), learningRate, 1, 1, 1);
 
         /* Stores the results of the 4 iterations */
@@ -62,7 +89,15 @@ public class LogicOrPerceptron {
         return new double[]{fourth.newWeight1(), fourth.newWeight2(), hasError};
     }
 
-    /* TODO: Add the JavaDoc */
+    /**
+     * Formats the results of the iteration into a table format.
+     *
+     * @param sample The iteration number
+     * @param result The iteration values/results
+     * @return The formatted results of the iteration
+     *
+     * @see Results
+     */
     private String formatResults(int sample, Results result) {
         DecimalFormat formatVal = new DecimalFormat("##.##");
         return String.format(" %-7s| %-7s| %-13s| %-18s| %-7s| %-15s| %-7s| %-15s| %-20s",
@@ -77,7 +112,26 @@ public class LogicOrPerceptron {
                 formatVal.format(result.newWeight1) + "," + formatVal.format(result.newWeight2)); // The Updated Weights
     }
 
-    /* TODO: Add the JavaDoc */
+    /**
+     * The iterate method that performs the calculations for the perceptron.
+     *
+     * <p>
+     *     this method will calculate the weights for the perceptron based on the inputs and the target value.
+     *     It will calculate the error and the delta values and weights for each input and the bias.
+     *     It will then return the results of the iteration.
+     * </p>
+     *
+     * @param weight0       The bias weight
+     * @param weight1       The weight for the first input
+     * @param weight2       The weight for the second input
+     * @param learningRate  The learning rate for the perceptron
+     * @param input1        The first input value
+     * @param input2        The second input value
+     * @param target        The target value
+     *
+     * @return The results of the iteration
+     * @see Results
+     */
     public Results iterate(double weight0, double weight1, double weight2, double learningRate,
                             int input1, int input2, int target) {
 
@@ -101,7 +155,9 @@ public class LogicOrPerceptron {
                 delta1, delta2, newWeight1, newWeight2);
     }
 
-    /* TODO: Add the JavaDoc */
+    /**
+     * The Results class that holds the results of an iteration.
+     */
     public record Results (double learningRate, int input1, int input2, int target, double weight0,
                             double weight1, double weight2, double s, int output, int error,
                             double delta1, double delta2, double newWeight1, double newWeight2) {}
