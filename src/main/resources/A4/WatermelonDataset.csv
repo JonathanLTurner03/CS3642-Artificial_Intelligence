@@ -1,0 +1,18 @@
+﻿ID,Color,Root,Sound,Texture,Umbilicus,Surface,Ripe
+1,Green,Curly,Muffled,Clear,Hollow,Hard,TRUE
+2,Dark,Curly,Dull,Clear,Hollow,Hard,TRUE
+3,Dark,Curly,Muffled,Clear,Hollow,Hard,TRUE
+4,Green,Curly,Dull,Clear,Hollow,Hard,TRUE
+5,Light,Curly,Muffled,Clear,Hollow,Hard,TRUE
+6,Green,Slightly Curly,Muffled,Clear,Slightly Hollow,Soft,TRUE
+7,Dark,Slightly Curly,Muffled,Slightly Blurry,Slightly Hollow,Soft,TRUE
+8,Dark,Slightly Curly,Muffled,Clear,Slightly Hollow,Hard,TRUE
+9,Dark,Slightly Curly,Dull,Slightly Blurry,Slightly Hollow,Hard,FALSE
+10,Green,Straight,Crisp,Clear,Flat,Soft,FALSE
+11,Light,Straight,Crisp,Blurry,Flat,Hard,FALSE
+12,Light,Curly,Muffled,Blurry,Flat,Soft,FALSE
+13,Green,Slightly Curly,Muffled,Slightly Blurry,Hollow,Hard,FALSE
+14,Light,Slightly Curly,Dull,Slightly Blurry,Hollow,Hard,FALSE
+15,Dark,Slightly Curly,Muffled,Clear,Slightly Hollow,Soft,FALSE
+16,Light,Curly,Muffled,Blurry,Flat,Hard,FALSE
+17,Green,Curly,Dull,Slightly Blurry,Slightly Hollow,Hard,FALSE
